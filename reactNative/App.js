@@ -1,10 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+// //componentes e props
+
+// function TextView(props) {
+//   return <Text> {props.title}</Text>;
+// }
+
 
 export default function App() {
+  const [number, setNumber] = useState(0);
+
+  function incrementacao() {
+    return setNumber(number + 1);
+  }
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {/* <Text>hello word!</Text> */}
+      {/* <TextView title="ola"/> */}
+
+      <Text>{number}</Text>
+
+      <TouchableOpacity style={styles.btn} onPress={incrementacao}>
+        <Text style={styles.text}> add +</Text>
+      </TouchableOpacity>
+      
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +34,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  btn: {
+    backgroundColor: '#00ff6c',
+    padding: 20,
+    margin: 20,
+  },
+  text: {
+    color: '#00a6e3',
   },
 });
